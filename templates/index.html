@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CELO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> <!-- opening and slides motion of the window -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Comfortaa:700" rel="stylesheet"> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> <!-- opening and slides motion of the window -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+
+    <!------------- BODY --------------->
+<body>
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+    <div id="particles-js"></div>
+    <div id="box">
+        <div class="box1 onlywide animated bounceOutLeft" style="animation-delay:1.7s;"></div>
+        <div class="box2 onlywide animated bounceOutLeft" style="animation-delay:1.8s;"></div>
+        <div class="box2 onlywide animated bounceOutLeft" style="animation-delay:1.9s;"></div>
+        <div class="box2 animated bounceOutRight" style="animation-delay:1.9s;"></div>
+        <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.8s;"></div>
+        <div class="box2 onlywide animated bounceOutRight" style="animation-delay:1.7s;"></div>
+    </div>
+    
+    <a id="detection" onclick="showdetection()" class="animated fadeIn" style="animation-delay:2.2s;">detection</a>
+    <a id="localisation" onclick="showlocalisation()" class="animated fadeIn" style="animation-delay:2.2s;">localisation</a>
+    <a id="contact" onclick="showcontact()" class="animated fadeIn" style="animation-delay:2.2s;">contact</a>
+    
+    <div id="middle" class="animated slideInDown" style="animation-delay:2.0s;">
+        <h1>Nom du projet et Logo </h1>
+        <h2>Detector of cancerous cells </h2>
+        <p> This website application was created for medical purpose : none of your data will be stored or collected</p>
+        <p> Made by DESRENTES Alicia, Farah DOUROUNI, Nelty LAY</p>
+        <div id="menu">
+            <a onclick="showdetection()">detection</a>
+            <a onclick="showlocalisation()">localisation</a>
+            <a onclick="showcontact()">contact</a>
+        </div>
+        <!-- <table>
+                <tr>
+                    <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social"><i class="fab fa-facebook"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social"><i class="fab fa-twitter"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social"><i class="fab fa-instagram"></i></a></td>
+                    <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social"><i class="fab fa-dribbble"></i></a></td>
+                </tr>
+        </table> -->
+    </div>
+
+    <!------------- LOCALISATION --------------->
+    <div id="localisation_container" class="container">
+        <div onclick="closelocalisation()"><i class="fa-angle-right"></i> X </div>
+        <h1>localisation.</h1>
+        <section>
+            <h2>Localisation principle</h2>
+            <p>Thnaks to our algorithm, we are able to locate the exact position (x,y coordonates) of the cancerous cells on your image.</p>
+            <p>
+                Please add your image(s) to locate your cancerous cells : 
+            </p>
+
+            <div id="used">
+                <div><i class="fas fa-circle"></i>&nbsp;This</div>
+                <div><i class="fas fa-circle"></i>&nbsp;is a</div>
+                <div><i class="fas fa-circle"></i>&nbsp;test</div>
+            </div>
+
+            <button class="btn_one">Upload</button>
+            <!-- <button class="btn_two">button 2</button> -->
+        </section>
+    </div>
+
+    <!------------- DETECTION --------------->
+    <div id="detection_container" class="container">
+            <div onclick="closedetection()"><i class="fas fa-angle-left"></i> X </div>
+            <h1>detection.</h1>
+            <section>
+                <h2>Detection principle</h2>
+                <p>
+                    Thanks to our algorithm, we are able to identify whether or not there are presence of cancerous cells in your picture(s). The algorithm won't be able to locate the exact position of the cancerous cells (for that please refer to the localisation part). However, it will be possible to determine its presence. 
+                </p>
+                <p>
+                    Please add your image(s) to identify whether or not there are cancerous cells : 
+                </p>
+                <form method="post" action="/predict" enctype="multipart/form-data">
+                    <input type="file" name="image">
+                    <br><br>
+                    <input type="submit" value="Predict">
+                </form>
+                
+
+            </section>
+
+            <section>
+                <p>Number of uploaded images :</p>
+            </section>
+        </div>
+
+    <!------------- CONTACT --------------->
+          <div id="contact_container" class="container">
+            <div onclick="closecontact()"><i class="fas fa-angle-down"></i> X</div>
+            <h1>contact.</h1>
+            <section>
+                <h2>contact me</h2>
+                <p>
+                    <form>
+                        <input type="text" placeholder="name" required>
+                        <input type="email" placeholder="email" required><br>
+                        <textarea placeholder="your message" required rows="5"></textarea><br>
+                        <button class="btn_one">send</button>
+                    </form> 
+                </p>
+            </section>
+        </div>
+
+    <!------------- FOOTER --------------->
+        <div id="footer">
+            ESME copyright <br> <a href="https://www.unicef.fr/">please donate </a>
+        </div>
+    <script src="../static/js/index.js" type="text/javascript"></script>
+    <script src="../static/js/particles.js"></script>
+    <script src="../static/js/app.js"></script>
+</body>
+</html>
