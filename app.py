@@ -66,4 +66,4 @@ def predict():
     submission_df.to_csv('D:/A3MSI/Projet/CellDetectorMIB-main/resultat.csv', index=False)
     
 if __name__ == '__main__':
-    app.run()
+    app.run(host='10.0.0.5',port=5000)
