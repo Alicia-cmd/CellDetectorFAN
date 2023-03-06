@@ -11,7 +11,7 @@ import os
 app = Flask(__name__)
 
 # Charger le modèle TensorFlow
-model = tf.keras.models.load_model('D:/A3MSI/Projet/Projet/Classif_Model')
+model = tf.keras.models.load_model('Classif_Model')
 
 @app.route('/')
 def index():
@@ -25,7 +25,7 @@ def predict():
     nom_fichier = fichier.filename
     
     # Chemin vers le répertoire où vous souhaitez enregistrer l'image
-    destination = 'D:/A3MSI/Projet/CellDetectorMIB-main/images/'
+    destination = 'images/'
     
     # Vérifiez si le répertoire existe et créez-le s'il n'existe pas
     if not os.path.exists(destination):
@@ -63,7 +63,7 @@ def predict():
     
     #convert to csv to submit to competition
     print("Generation en cours ....")
-    submission_df.to_csv('D:/A3MSI/Projet/CellDetectorMIB-main/resultat.csv', index=False)
+    submission_df.to_csv('resultat.csv', index=False)
     
 if __name__ == '__main__':
     app.run(host='10.0.0.5',port=5000)
