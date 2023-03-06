@@ -25,7 +25,7 @@ def predict():
     nom_fichier = fichier.filename
     
     # Chemin vers le répertoire où vous souhaitez enregistrer l'image
-    destination = 'images/'
+    destination = 'images'
     
     # Vérifiez si le répertoire existe et créez-le s'il n'existe pas
     if not os.path.exists(destination):
